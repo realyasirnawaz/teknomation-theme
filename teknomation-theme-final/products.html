@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Aura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            brown: '#DBC1AC',
+                            dark: '#1A1A1A',
+                            light: '#F9F7F5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(219, 193, 172, 0.2);
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: #1A1A1A;
+            color: white;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #DBC1AC;
+            color: #1A1A1A;
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark bg-white selection:bg-brand-brown selection:text-brand-dark">
+    <!-- Navbar -->
+    <header id="navbar" class="glass-header transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-dark rounded-full flex items-center justify-center">
+                    <div class="w-4 h-4 bg-brand-brown rounded-sm rotate-45"></div>
+                </div>
+                <span class="text-xl font-bold tracking-tighter uppercase">Aura</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-sm font-medium text-brand-dark/70 hover:text-brand-dark">Home</a>
+                <a href="services.html" class="text-sm font-medium text-brand-dark/70 hover:text-brand-dark">Services</a>
+                <a href="products.html" class="text-sm font-medium text-brand-brown">Products</a>
+                <a href="projects.html" class="text-sm font-medium text-brand-dark/70 hover:text-brand-dark">Projects</a>
+                <a href="about.html" class="text-sm font-medium text-brand-dark/70 hover:text-brand-dark">About</a>
+                <a href="contact.html" class="text-sm font-medium text-brand-dark/70 hover:text-brand-dark">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-6">
+                <button class="hidden sm:block text-brand-dark/70 hover:text-brand-dark">
+                    <i data-lucide="search" size="20"></i>
+                </button>
+                <button class="hidden sm:block text-brand-dark/70 hover:text-brand-dark">
+                    <i data-lucide="shopping-bag" size="20"></i>
+                </button>
+                <a href="contact.html" class="btn-primary py-2 px-6 text-sm">Get Started</a>
+                <button id="menu-toggle" class="md:hidden text-brand-dark">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-brand-brown/20 p-6 flex flex-col gap-4 shadow-xl">
+            <a href="index.html" class="text-lg font-medium text-brand-dark">Home</a>
+            <a href="services.html" class="text-lg font-medium text-brand-dark">Services</a>
+            <a href="products.html" class="text-lg font-medium text-brand-brown">Products</a>
+            <a href="projects.html" class="text-lg font-medium text-brand-dark">Projects</a>
+            <a href="about.html" class="text-lg font-medium text-brand-dark">About</a>
+            <a href="contact.html" class="text-lg font-medium text-brand-dark">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-16">
+        <!-- Header -->
+        <section class="bg-brand-light pt-16 pb-24 px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Our Products</h1>
+                <p class="text-xl text-brand-dark/60 leading-relaxed">
+                    High-performance industrial components designed for the modern landscape.
+                </p>
+            </div>
+        </section>
+
+        <!-- Filter & Search -->
+        <section class="py-12 px-6 border-b border-brand-brown/10">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex gap-4 overflow-x-auto pb-2 w-full md:w-auto">
+                    <button class="px-6 py-2 rounded-full border border-brand-brown/20 text-sm font-medium hover:bg-brand-brown hover:text-white transition-colors whitespace-nowrap bg-brand-brown text-white">All</button>
+                    <button class="px-6 py-2 rounded-full border border-brand-brown/20 text-sm font-medium hover:bg-brand-brown hover:text-white transition-colors whitespace-nowrap">Controllers</button>
+                    <button class="px-6 py-2 rounded-full border border-brand-brown/20 text-sm font-medium hover:bg-brand-brown hover:text-white transition-colors whitespace-nowrap">Sensors</button>
+                    <button class="px-6 py-2 rounded-full border border-brand-brown/20 text-sm font-medium hover:bg-brand-brown hover:text-white transition-colors whitespace-nowrap">Automation</button>
+                    <button class="px-6 py-2 rounded-full border border-brand-brown/20 text-sm font-medium hover:bg-brand-brown hover:text-white transition-colors whitespace-nowrap">Networking</button>
+                    <button class="px-6 py-2 rounded-full border border-brand-brown/20 text-sm font-medium hover:bg-brand-brown hover:text-white transition-colors whitespace-nowrap">Security</button>
+                </div>
+                <div class="relative w-full md:w-80">
+                    <input type="text" placeholder="Search products..." class="w-full bg-white border border-brand-brown/10 rounded-full px-12 py-3 focus:outline-none focus:border-brand-brown" />
+                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-dark/30" size="18"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section class="py-24 px-6">
+            <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white p-4 rounded-3xl border border-brand-brown/10 group transition-all hover:-translate-y-2">
+                    <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-brand-light relative">
+                        <img src="https://picsum.photos/seed/tech1/600/600" alt="Aura Pro Controller" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <button class="absolute bottom-4 right-4 w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i data-lucide="shopping-bag" size="18"></i>
+                        </button>
+                    </div>
+                    <div class="text-xs text-brand-brown font-bold uppercase tracking-widest mb-1">Controllers</div>
+                    <h3 class="font-bold mb-1">Aura Pro Controller</h3>
+                    <div class="text-brand-brown font-bold">$299</div>
+                </div>
+                <!-- Add more products as needed -->
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="px-6">
+            <div class="max-w-7xl mx-auto bg-brand-dark rounded-[3rem] p-12 md:p-24 text-center text-white">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">Need a Custom Solution?</h2>
+                <p class="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
+                    Our engineering team can design bespoke components tailored to your specific industrial requirements.
+                </p>
+                <a href="contact.html" class="btn-primary py-4 px-12 text-lg inline-flex items-center gap-2">
+                    Contact Engineering <i data-lucide="arrow-right" size="20"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- (Same as index.html) -->
+
+    <script src="main.js"></script>
+</body>
+</html>

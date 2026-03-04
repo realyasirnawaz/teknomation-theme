@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura - Industrial Design & Automation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            brown: '#DBC1AC',
+                            dark: '#1A1A1A',
+                            light: '#F9F7F5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-brand-dark antialiased">
+
+    <!-- Navbar -->
+    <header id="navbar" class="glass-header transition-all duration-300 fixed top-0 left-0 w-full z-50 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 shrink-0">
+                <div class="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center">
+                    <div class="w-5 h-5 bg-[#DBC1AC] rounded-sm rotate-45"></div>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tighter uppercase text-[#1A1A1A]">AURA</span>
+            </a>
+
+            <!-- Centered Navigation -->
+           <nav class="desktop-nav flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+                <a href="#home" class="nav-item text-[15px] font-medium text-brand-brown transition-colors">Home</a>
+                <a href="#services" class="nav-item text-[15px] font-medium text-[#5E6265] hover:text-[#1A1A1A] transition-colors">Services</a>
+                <a href="#products" class="nav-item text-[15px] font-medium text-[#5E6265] hover:text-[#1A1A1A] transition-colors">Products</a>
+                <a href="#projects" class="nav-item text-[15px] font-medium text-[#5E6265] hover:text-[#1A1A1A] transition-colors">Projects</a>
+                <a href="#about" class="nav-item text-[15px] font-medium text-[#5E6265] hover:text-[#1A1A1A] transition-colors">About</a>
+                <a href="#contact" class="nav-item text-[15px] font-medium text-[#5E6265] hover:text-[#1A1A1A] transition-colors">Contact</a>
+            </nav>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-2 sm:gap-5">
+                <button class="sm:block text-[#1A1A1A] hover:text-brand-brown transition-colors">
+                    <i data-lucide="search" class="w-5 h-5 sm:w-6 h-6"></i>
+                </button>
+                <button onclick="toggleCart()" class="relative text-[#1A1A1A] hover:text-brand-brown transition-colors">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 sm:w-6 h-6"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-brand-brown text-brand-dark text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+                </button>
+                <a href="#contact" class="get-started md:inline-flex bg-[#1A1A1A] text-white px-7 py-2.5 rounded-full text-[15px] font-bold hover:bg-black transition-all active:scale-95">
+                    Get Started
+                </a>
+                <button id="menu-toggle" class="lg:hidden text-[#1A1A1A] p-2">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-b border-brand-brown/20 p-6 flex flex-col gap-4 shadow-xl">
+            <a href="#home" class="nav-item text-lg font-bold text-brand-brown">Home</a>
+            <a href="#services" class="nav-item text-lg font-bold text-brand-dark">Services</a>
+            <a href="#products" class="nav-item text-lg font-bold text-brand-dark">Products</a>
+            <a href="#projects" class="nav-item text-lg font-bold text-brand-dark">Projects</a>
+            <a href="#about" class="nav-item text-lg font-bold text-brand-dark">About</a>
+            <a href="#contact" class="nav-item text-lg font-bold text-brand-dark">Contact</a>
+            <hr class="border-brand-brown/10 my-2">
+            <a href="#contact" class="bg-[#1A1A1A] text-white px-7 py-4 rounded-full text-center font-bold hover:bg-black transition-all">
+                Get Started
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        
+        <!-- Home Page -->
+        <div id="page-home" class="page-section">
+            <!-- Hero Section -->
+            <section class="relative pt-6 pb-12 overflow-hidden px-6 mt-24">
+                <div class="max-w-7xl mx-auto bg-[#DDE1E3] rounded-[3rem] overflow-hidden">
+                    <div class="grid lg:grid-cols-2 items-center">
+                        <div class="p-12 lg:p-20 z-10 fade-in">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#5E6265] rounded-full text-xs font-medium text-white mb-8">
+                                1000+ customers joined today
+                                <span class="mx-2 opacity-30">|</span>
+                                <span class="flex items-center gap-1">
+                                    Join now <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                </span>
+                            </div>
+                            <h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-8 text-[#1A1A1A]">
+                                Build Your Website <br />
+                                Faster with <br />
+                                Frameblox
+                            </h1>
+                            <p class="text-lg text-[#5E6265] max-w-lg mb-10 leading-relaxed">
+                                Speed up your website build with our ultimate UI kits for Framer. 
+                                Enjoy high-quality, customizable elements for a seamless, stunning user experience.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#contact" class="px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 hover:bg-gray-100 transition-all nav-link">
+                                    Get Started <i data-lucide="arrow-right" class="w-4.5 h-4.5"></i>
+                                </a>
+                                <a href="#products" class="px-8 py-4 bg-[#1A1A1A] text-white rounded-full font-bold hover:bg-black transition-all">
+                                    Learn more
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="relative h-full min-h-[400px] lg:min-h-[600px] fade-in">
+                            <img 
+                                src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80&w=1200" 
+                                alt="Robot Assistant"
+                                class="w-full h-full object-cover object-center"
+                                referrerPolicy="no-referrer"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="max-w-7xl mx-auto px-12 mt-12 grid grid-cols-2 sm:grid-cols-4 gap-8 fade-in">
+                    <div>
+                        <div class="text-4xl font-bold text-[#1A1A1A]">500+</div>
+                        <div class="text-sm text-[#5E6265] mt-1">Components</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-[#1A1A1A]">50+</div>
+                        <div class="text-sm text-[#5E6265] mt-1">Pages</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-[#1A1A1A]">150+</div>
+                        <div class="text-sm text-[#5E6265] mt-1">Customers</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-[#1A1A1A]">150+</div>
+                        <div class="text-sm text-[#5E6265] mt-1">Customers</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section class="py-24 bg-brand-light">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 fade-in">
+                        <div>
+                            <div class="text-brand-brown font-bold uppercase tracking-widest text-sm mb-4">Our Expertise</div>
+                            <h2 class="text-4xl md:text-5xl font-bold tracking-tight">Services</h2>
+                        </div>
+                        <p class="text-brand-dark/60 max-w-md">
+                            We provide comprehensive strategic services designed to elevate your business operations to the next level.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="group cursor-pointer fade-in">
+                            <div class="aspect-[4/5] rounded-3xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
+                                <div class="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/40 transition-colors"></div>
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <h3 class="text-2xl font-bold text-white mb-2">Industrial Automation</h3>
+                                    <div class="flex items-center gap-2 text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                        Learn more <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer fade-in">
+                            <div class="aspect-[4/5] rounded-3xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
+                                <div class="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/40 transition-colors"></div>
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <h3 class="text-2xl font-bold text-white mb-2">Strategic Consulting</h3>
+                                    <div class="flex items-center gap-2 text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                        Learn more <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer fade-in">
+                            <div class="aspect-[4/5] rounded-3xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
+                                <div class="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/40 transition-colors"></div>
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <h3 class="text-2xl font-bold text-white mb-2">Smart Infrastructure</h3>
+                                    <div class="flex items-center gap-2 text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                        Learn more <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-center fade-in">
+                        <a href="#services" class="btn-primary inline-flex items-center gap-2 nav-link">
+                            View All Services <i data-lucide="arrow-right" class="w-4.5 h-4.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Single Product Section -->
+            <section class="py-24">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div class="relative fade-in">
+                            <div class="aspect-square rounded-[3rem] overflow-hidden bg-brand-light">
+                                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                            </div>
+                            <div class="absolute -top-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-brand-brown/10">
+                                <div class="text-brand-brown font-bold text-xs uppercase tracking-widest mb-1">ISO Certified</div>
+                                <div class="text-xl font-bold">9001 CERT.</div>
+                            </div>
+                            <div class="absolute -bottom-8 -right-8 bg-white p-8 rounded-2xl shadow-xl border border-brand-brown/10">
+                                <div class="text-4xl font-bold text-brand-brown">15+</div>
+                                <div class="text-xs font-bold uppercase tracking-widest mt-1">Years Exp.</div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in">
+                            <div class="text-brand-brown font-bold uppercase tracking-widest text-sm mb-4">Industry Leaders</div>
+                            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8">
+                                The Gold Standard in <br />
+                                <span class="text-brand-brown">Gate Automation</span>
+                            </h2>
+                            <p class="text-brand-dark/60 mb-12 leading-relaxed">
+                                We don't just automate gates — we deliver complete peace of mind. 
+                                With over 15 years of engineering expertise and 50,000+ successful installations worldwide.
+                            </p>
+
+                            <div class="grid sm:grid-cols-2 gap-8">
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 shrink-0 bg-brand-light rounded-xl flex items-center justify-center text-brand-brown">
+                                        <i data-lucide="zap" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Fast Install</h4>
+                                        <p class="text-sm text-brand-dark/50">Complete setup in under 4 hours.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 shrink-0 bg-brand-light rounded-xl flex items-center justify-center text-brand-brown">
+                                        <i data-lucide="shield" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Lifetime Guarantee</h4>
+                                        <p class="text-sm text-brand-dark/50">Every product is backed by our 5-year warranty.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 shrink-0 bg-brand-light rounded-xl flex items-center justify-center text-brand-brown">
+                                        <i data-lucide="clock" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">24/7 Support</h4>
+                                        <p class="text-sm text-brand-dark/50">Round-the-clock technical support.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 shrink-0 bg-brand-light rounded-xl flex items-center justify-center text-brand-brown">
+                                        <i data-lucide="award" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Certified</h4>
+                                        <p class="text-sm text-brand-dark/50">UL, CE, and ISO 9001 compliant.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section class="py-24 bg-brand-light">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-4xl font-bold tracking-tight mb-4">Featured Products</h2>
+                        <p class="text-brand-dark/60 max-w-2xl mx-auto">
+                            Explore our range of high-performance components designed for the modern industrial landscape.
+                        </p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Product 1 -->
+                        <div class="bg-white p-4 rounded-3xl border border-brand-brown/10 group fade-in">
+                            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-brand-light relative">
+                                <img src="https://picsum.photos/seed/tech1/600/600" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
+                                <button class="absolute bottom-4 right-4 w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
+                                </button>
+                            </div>
+                            <h3 class="font-bold mb-1">Aura Pro Controller</h3>
+                            <div class="text-brand-brown font-bold">$299</div>
+                        </div>
+                        <!-- Product 2 -->
+                        <div class="bg-white p-4 rounded-3xl border border-brand-brown/10 group fade-in">
+                            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-brand-light relative">
+                                <img src="https://picsum.photos/seed/tech2/600/600" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
+                                <button class="absolute bottom-4 right-4 w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
+                                </button>
+                            </div>
+                            <h3 class="font-bold mb-1">Industrial Sensor Hub</h3>
+                            <div class="text-brand-brown font-bold">$149</div>
+                        </div>
+                        <!-- Product 3 -->
+                        <div class="bg-white p-4 rounded-3xl border border-brand-brown/10 group fade-in">
+                            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-brand-light relative">
+                                <img src="https://picsum.photos/seed/tech3/600/600" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
+                                <button class="absolute bottom-4 right-4 w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
+                                </button>
+                            </div>
+                            <h3 class="font-bold mb-1">Smart Gate Module</h3>
+                            <div class="text-brand-brown font-bold">$499</div>
+                        </div>
+                        <!-- Product 4 -->
+                        <div class="bg-white p-4 rounded-3xl border border-brand-brown/10 group fade-in">
+                            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-brand-light relative">
+                                <img src="https://picsum.photos/seed/tech4/600/600" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
+                                <button class="absolute bottom-4 right-4 w-10 h-10 bg-brand-dark text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
+                                </button>
+                            </div>
+                            <h3 class="font-bold mb-1">Secure Link Router</h3>
+                            <div class="text-brand-brown font-bold">$199</div>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-center fade-in">
+                        <a href="#products" class="btn-primary inline-flex items-center gap-2 nav-link">
+                            Shop All Products <i data-lucide="arrow-right" class="w-4.5 h-4.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="py-24 overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-4xl font-bold tracking-tight mb-4">
+                            Don't take our word for it! <br />
+                            Hear what our <span class="text-brand-brown">Customers</span> say
+                        </h2>
+                        <p class="text-brand-dark/60">With over 100k+ clients served, here's what they have to say</p>
+                    </div>
+
+                    <div id="testimonial-carousel" class="relative overflow-hidden px-4">
+                        <div class="carousel-container flex gap-8">
+                            <!-- Testimonials will be injected here by script.js -->
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center gap-4 mt-12 fade-in">
+                        <button id="prev-testimonial" class="w-12 h-12 rounded-full border border-brand-brown/30 flex items-center justify-center hover:bg-brand-brown hover:text-white transition-colors">
+                            <i data-lucide="chevron-left"></i>
+                        </button>
+                        <div id="carousel-dots" class="flex items-center gap-2">
+                            <!-- Dots will be injected here -->
+                        </div>
+                        <button id="next-testimonial" class="w-12 h-12 rounded-full border border-brand-brown/30 flex items-center justify-center hover:bg-brand-brown hover:text-white transition-colors">
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="py-24 bg-[#F8F9FB]">
+                <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+                    <div class="fade-in">
+                        <h2 class="text-5xl font-bold tracking-tight mb-12 text-[#1A1A1A]">
+                            Frequently asked <br /> questions
+                        </h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-6 p-6 bg-white rounded-2xl border border-brand-brown/10 hover:shadow-md transition-shadow cursor-pointer group">
+                                <div class="w-12 h-12 shrink-0 bg-brand-light rounded-xl flex items-center justify-center text-brand-dark group-hover:bg-brand-brown transition-colors">
+                                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark">Contact live chat support</h4>
+                                    <p class="text-sm text-brand-dark/50">24/7 available. No chatbots.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-6 p-6 bg-white rounded-2xl border border-brand-brown/10 hover:shadow-md transition-shadow cursor-pointer group">
+                                <div class="w-12 h-12 shrink-0 bg-brand-light rounded-xl flex items-center justify-center text-brand-dark group-hover:bg-brand-brown transition-colors">
+                                    <i data-lucide="search" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark">Visit help center</h4>
+                                    <p class="text-sm text-brand-dark/50">Check out tutorials.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-6 p-6 bg-white rounded-2xl border border-brand-brown/10 hover:shadow-md transition-shadow cursor-pointer group">
+                                <div class="w-12 h-12 shrink-0 bg-brand-light rounded-xl flex items-center justify-center text-brand-dark group-hover:bg-brand-brown transition-colors">
+                                    <i data-lucide="phone" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark">Book a demo</h4>
+                                    <p class="text-sm text-brand-dark/50">1:1 talk with a tax specialist.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="faq-list" class="space-y-2 fade-in">
+                        <!-- FAQ items will be injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="py-24 bg-brand-light">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="text-center mb-16 fade-in">
+                        <div class="text-brand-brown font-bold uppercase tracking-widest text-xs mb-4">Gallery</div>
+                        <h2 class="text-4xl font-bold tracking-tight">Our Latest <span class="text-brand-brown">Projects</span></h2>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-columns">
+                        <!-- Gallery items will be injected here -->
+                    </div>
+                    <div class="mt-12 text-center fade-in">
+                        <a href="#projects" class="btn-primary inline-flex items-center gap-2 nav-link">
+                            View All Projects <i data-lucide="arrow-right" class="w-4.5 h-4.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Services Page -->
+        <div id="page-services" class="page-section hidden">
+            <!-- Header -->
+            <section class="bg-brand-dark text-white pt-40 pb-24 px-6 text-center">
+                <div class="max-w-3xl mx-auto fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
+                    <p class="text-xl text-white/60 leading-relaxed">
+                        Comprehensive industrial and strategic solutions tailored to your unique business needs.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Services List -->
+            <section class="py-24 px-6">
+                <div id="services-list" class="max-w-7xl mx-auto space-y-24">
+                    <!-- Services will be injected here -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Products Page -->
+        <div id="page-products" class="page-section hidden">
+            <!-- Header -->
+            <section class="bg-brand-dark text-white pt-40 pb-24 px-6 text-center">
+                <div class="max-w-3xl mx-auto fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">Our Products</h1>
+                    <p class="text-xl text-white/60 leading-relaxed">
+                        High-performance industrial components designed for the modern landscape.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Filter & Search -->
+            <section class="py-12 px-6 border-b border-brand-brown/10">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 fade-in">
+                    <div id="product-categories" class="flex gap-4 overflow-x-auto pb-2 w-full md:w-auto">
+                        <!-- Categories will be injected here -->
+                    </div>
+                    <div class="relative w-full md:w-80">
+                        <input id="product-search" type="text" placeholder="Search products..." class="w-full bg-white border border-brand-brown/10 rounded-full px-12 py-3 focus:outline-none focus:border-brand-brown" />
+                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-dark/30 w-4.5 h-4.5"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Grid -->
+            <section class="py-24 px-6">
+                <div id="products-grid" class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Products will be injected here -->
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="px-6 pb-24">
+                <div class="max-w-7xl mx-auto bg-brand-dark rounded-[3rem] p-12 md:p-24 text-center text-white fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8">Need a Custom Solution?</h2>
+                    <p class="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
+                        Our engineering team can design bespoke components tailored to your specific industrial requirements.
+                    </p>
+                    <a href="#contact" class="btn-primary py-4 px-12 text-lg inline-flex items-center gap-2 nav-link">
+                        Contact Engineering <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Projects Page -->
+        <div id="page-projects" class="page-section hidden">
+            <!-- Header -->
+            <section class="bg-brand-dark text-white pt-40 pb-24 px-6 text-center">
+                <div class="max-w-3xl mx-auto fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">Our Projects</h1>
+                    <p class="text-xl text-white/60 leading-relaxed">
+                        Showcasing our latest innovations and successful implementations worldwide.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Project Grid -->
+            <section class="py-24 px-6">
+                <div id="projects-list-grid" class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projects will be injected here -->
+                </div>
+            </section>
+
+            <!-- Stats Row -->
+            <section class="py-24 bg-brand-light">
+                <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center fade-in">
+                    <div>
+                        <div class="text-5xl font-bold text-brand-dark mb-2">250+</div>
+                        <div class="text-sm font-bold uppercase tracking-widest text-brand-dark/40">Projects Completed</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold text-brand-dark mb-2">35+</div>
+                        <div class="text-sm font-bold uppercase tracking-widest text-brand-dark/40">Countries Served</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold text-brand-dark mb-2">120+</div>
+                        <div class="text-sm font-bold uppercase tracking-widest text-brand-dark/40">Team Members</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold text-brand-dark mb-2">15+</div>
+                        <div class="text-sm font-bold uppercase tracking-widest text-brand-dark/40">Years Experience</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="page-about" class="page-section hidden">
+            <!-- Header -->
+            <section class="bg-brand-dark text-white pt-40 pb-24 px-6 text-center">
+                <div class="max-w-3xl mx-auto fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">About Aura</h1>
+                    <p class="text-xl text-white/60 leading-relaxed">
+                        Pioneering the next generation of industrial automation and strategic business solutions since 2009.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Story Section -->
+            <section class="py-24 px-6">
+                <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="fade-in">
+                        <div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" alt="Our Team" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <div class="text-brand-brown font-bold uppercase tracking-widest text-sm mb-4">Our Story</div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8">Engineering Excellence <br /><span class="text-brand-brown">Since 2009</span></h2>
+                        <p class="text-brand-dark/60 mb-8 leading-relaxed text-lg">
+                            Aura was founded on a simple premise: that industrial technology should be as elegant as it is functional. What started as a small engineering consultancy has grown into a global leader in automation and strategic business solutions.
+                        </p>
+                        <p class="text-brand-dark/60 mb-12 leading-relaxed text-lg">
+                            Today, we serve over 150+ enterprise clients across 35 countries, providing the critical infrastructure and strategic guidance needed to thrive in an increasingly automated world.
+                        </p>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="flex gap-4">
+                                <i data-lucide="users" class="text-brand-brown shrink-0 w-6 h-6"></i>
+                                <div>
+                                    <h4 class="font-bold mb-1">Expert Team</h4>
+                                    <p class="text-sm text-brand-dark/50">120+ specialized engineers and consultants.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <i data-lucide="globe" class="text-brand-brown shrink-0 w-6 h-6"></i>
+                                <div>
+                                    <h4 class="font-bold mb-1">Global Reach</h4>
+                                    <p class="text-sm text-brand-dark/50">Operations in 35+ countries worldwide.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission & Vision -->
+            <section class="py-24 px-6 bg-brand-dark text-white overflow-hidden">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-24">
+                        <div class="fade-in">
+                            <h3 class="text-brand-brown font-bold uppercase tracking-widest text-sm mb-6">Our Mission</h3>
+                            <p class="text-3xl md:text-4xl font-light leading-tight">
+                                To empower industrial enterprises with <span class="text-brand-brown italic">intelligent automation</span> that drives efficiency, safety, and sustainable growth.
+                            </p>
+                        </div>
+                        <div class="fade-in">
+                            <h3 class="text-brand-brown font-bold uppercase tracking-widest text-sm mb-6">Our Vision</h3>
+                            <p class="text-3xl md:text-4xl font-light leading-tight">
+                                To be the global benchmark for <span class="text-brand-brown italic">industrial design</span>, where technology and human-centric engineering coexist in perfect harmony.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Milestones -->
+            <section class="py-24 px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-4xl font-bold tracking-tight mb-4">Our Milestones</h2>
+                        <p class="text-brand-dark/60 max-w-2xl mx-auto">
+                            A journey of innovation, growth, and relentless pursuit of excellence.
+                        </p>
+                    </div>
+
+                    <div id="milestones-list" class="space-y-12">
+                        <!-- Milestones will be injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Values Section -->
+            <section class="py-24 bg-brand-light px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-4xl font-bold tracking-tight mb-4">Our Core Values</h2>
+                        <p class="text-brand-dark/60 max-w-2xl mx-auto">
+                            The principles that guide our every decision and implementation.
+                        </p>
+                    </div>
+
+                    <div id="values-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Values will be injected here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="page-contact" class="page-section hidden">
+            <!-- Header -->
+            <section class="bg-brand-dark text-white pt-40 pb-24 px-6 text-center">
+                <div class="max-w-3xl mx-auto fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
+                    <p class="text-xl text-white/60 leading-relaxed">
+                        Get in touch with our expert team to discuss your next industrial project.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Contact Info Cards -->
+            <section class="py-24 px-6">
+                <div id="contact-info-grid" class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                    <!-- Cards will be injected here -->
+                </div>
+            </section>
+
+            <!-- Form & Map -->
+            <section class="py-24 px-6 bg-brand-light">
+                <div class="max-w-7xl mx-auto">
+                    <div class="h-[600px] w-full fade-in">
+                        <div class="w-full h-full rounded-[3rem] overflow-hidden shadow-2xl bg-brand-dark relative">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Our Office" class="w-full h-full object-cover opacity-50" />
+                            <div class="absolute inset-0 flex items-center justify-center p-12 text-center">
+                                <div class="bg-white p-12 rounded-[3rem] shadow-2xl max-w-lg">
+                                    <h4 class="text-3xl font-bold mb-6">Visit Our Headquarters</h4>
+                                    <p class="text-brand-dark/60 mb-8 leading-relaxed text-lg">
+                                        123 Innovation Way, Tech City, TC 54321, United States. <br />
+                                        Our doors are always open for visionary partners.
+                                    </p>
+                                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                                        <div class="flex items-center gap-4 text-left">
+                                            <div class="w-12 h-12 bg-brand-light rounded-xl flex items-center justify-center text-brand-brown">
+                                                <i data-lucide="clock" class="w-6 h-6"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold">Opening Hours</p>
+                                                <p class="text-sm text-brand-dark/50">Mon-Fri: 9am - 6pm</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4 text-left">
+                                            <div class="w-12 h-12 bg-brand-light rounded-xl flex items-center justify-center text-brand-brown">
+                                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold">Location</p>
+                                                <p class="text-sm text-brand-dark/50">Tech City, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Product Detail Page -->
+        <div id="page-product-detail" class="page-section hidden">
+            <div id="product-detail-container" class="max-w-7xl mx-auto px-6 py-32">
+                <!-- Content will be injected here -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-8">
+                        <div class="w-8 h-8 bg-brand-brown rounded-full flex items-center justify-center">
+                            <div class="w-4 h-4 bg-brand-dark rounded-sm rotate-45"></div>
+                        </div>
+                        <span class="text-2xl font-bold tracking-tighter uppercase">Aura</span>
+                    </div>
+                    <p class="text-white/50 leading-relaxed mb-8">
+                        Pioneering the next generation of industrial automation and strategic business solutions.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-brown hover:border-brand-brown transition-colors">
+                            <i data-lucide="instagram" class="w-4.5 h-4.5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-brown hover:border-brand-brown transition-colors">
+                            <i data-lucide="twitter" class="w-4.5 h-4.5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-brown hover:border-brand-brown transition-colors">
+                            <i data-lucide="linkedin" class="w-4.5 h-4.5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-brown hover:border-brand-brown transition-colors">
+                            <i data-lucide="facebook" class="w-4.5 h-4.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-8">Quick Links</h4>
+                    <ul class="space-y-4 text-white/50">
+                        <li><a href="#home" class="hover:text-brand-brown transition-colors nav-link">Home</a></li>
+                        <li><a href="#services" class="hover:text-brand-brown transition-colors nav-link">Services</a></li>
+                        <li><a href="#products" class="hover:text-brand-brown transition-colors nav-link">Products</a></li>
+                        <li><a href="#projects" class="hover:text-brand-brown transition-colors nav-link">Projects</a></li>
+                        <li><a href="#about" class="hover:text-brand-brown transition-colors nav-link">About</a></li>
+                        <li><a href="#contact" class="hover:text-brand-brown transition-colors nav-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-8">Services</h4>
+                    <ul class="space-y-4 text-white/50">
+                        <li><a href="#services" class="hover:text-brand-brown transition-colors nav-link">Automation</a></li>
+                        <li><a href="#services" class="hover:text-brand-brown transition-colors nav-link">M&A Advisory</a></li>
+                        <li><a href="#services" class="hover:text-brand-brown transition-colors nav-link">Capital Funding</a></li>
+                        <li><a href="#services" class="hover:text-brand-brown transition-colors nav-link">Security Audit</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-8">Newsletter</h4>
+                    <p class="text-white/50 mb-6">Subscribe to get the latest news and updates.</p>
+                    <form id="newsletter-form" class="flex gap-2">
+                        <input 
+                            type="email" 
+                            placeholder="Email address" 
+                            class="bg-white/5 border border-white/10 rounded-full px-6 py-3 text-sm flex-1 focus:outline-none focus:border-brand-brown"
+                            required
+                        />
+                        <button type="submit" class="w-12 h-12 bg-brand-brown text-brand-dark rounded-full flex items-center justify-center hover:bg-white transition-colors">
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/30 text-sm">
+                <p>© 2024 Aura Industrial Design. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-white z-[100] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col">
+        <div class="p-6 border-b border-brand-brown/10 flex items-center justify-between">
+            <h3 class="text-2xl font-bold">Your Cart</h3>
+            <button onclick="toggleCart()" class="w-10 h-10 rounded-full hover:bg-brand-light flex items-center justify-center transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div id="cart-items-list" class="flex-1 overflow-y-auto p-6">
+            <!-- Cart items will be injected here -->
+        </div>
+        <div class="p-6 border-t border-brand-brown/10 bg-brand-light/30">
+            <div class="flex items-center justify-between mb-6">
+                <span class="text-brand-dark/50 font-medium">Subtotal</span>
+                <span id="cart-total" class="text-2xl font-bold text-brand-dark">$0</span>
+            </div>
+            <button class="w-full bg-brand-dark text-white py-4 rounded-2xl font-bold text-lg hover:bg-black transition-all active:scale-95 flex items-center justify-center gap-3">
+                Checkout <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+            <p class="text-center text-xs text-brand-dark/40 mt-4">Free shipping on all orders</p>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-brand-dark/60 backdrop-blur-sm z-[110] hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-4xl rounded-[3rem] overflow-hidden shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProductModal()" class="absolute top-6 right-6 w-12 h-12 bg-white/80 backdrop-blur rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all z-10">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="product-modal-content" class="p-8 md:p-12">
+                <!-- Product content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
